@@ -2,27 +2,94 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/bg"
+    android:layout_gravity="center_vertical"
     android:padding="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context=".qrCodes.activities.MainActivity">
+
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="District"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <Spinner
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/spinner_bg"
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:text="Starting"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
 
     <EditText
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/spinner_bg"
         android:id="@+id/edt_value"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_text"
-        android:importantForAutofill="no"
-        android:inputType="text" />
+        android:layout_height="40dp"
+        android:hint="Starting Value"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:text="Ending"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+
+    <EditText
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+            android:background="@drawable/spinner_bg"
+            android:id="@+id/edt_value_max"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Ending value"
+            android:importantForAutofill="no"
+            android:inputType="number" />
+
+
 
     <LinearLayout
+
+
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/btn"
             android:layout_weight="1"
             android:id="@+id/generate_barcode"
             android:layout_width="0dp"
@@ -30,6 +97,8 @@
             android:text="@string/generate"/>
 
         <Button
+
+            android:visibility="gone"
             android:layout_weight="1"
             android:id="@+id/save_barcode"
             android:layout_width="0dp"

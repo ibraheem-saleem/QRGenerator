@@ -1,4 +1,4 @@
-package androidmads.library.qrgenearator;
+package pmru.library.qrgenearator;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;

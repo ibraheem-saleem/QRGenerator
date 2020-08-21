@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="pmru.covid19.qrCodes.activities.Show_Qr_Images">
+
+
+    <LinearLayout
+        android:id="@+id/custombar"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <ImageView
+
+            android:layout_gravity="left"
+            android:layout_weight="1.5"
+            android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ImageView>
+        <TextView
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:gravity="center|left"
+            android:text="PMRU COVID 19"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TextView>
+
+    </LinearLayout>
+    <View
+        android:id="@+id/viewline"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/custombar"
+        android:background="#0FA093"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"></View>
+
+    <RelativeLayout
+
+        android:background="#ffffff"
+        android:id="@+id/viewpagger_releative"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpagger"
+        android:layout_marginBottom="10dp"
+        android:layout_width="256dp"
+
+        android:layout_height="256dp"
+        android:layout_centerHorizontal="true"></androidx.viewpager.widget.ViewPager>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:id="@+id/nextqr"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/viewpagger_releative"
+        android:src="@drawable/tight"
+        android:layout_width="26dp"
+        android:layout_height="26dp"></ImageView>
+
+    <ImageView
+        android:layout_marginRight="20dp"
+        android:id="@+id/previousqr"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/viewpagger_releative"
+        android:src="@drawable/previousqr"
+        android:layout_width="26dp"
+        android:layout_height="26dp"></ImageView>
+
+    <Button
+        android:visibility="gone"
+        android:onClick="openfolder"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:text="Open Folder"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/viewpagger_releative"
+        android:background="@drawable/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"></Button>
+    </RelativeLayout>
+
