@@ -74,16 +74,28 @@
         android:layout_height="26dp"></ImageView>
 
     <Button
-        android:visibility="gone"
+        android:id="@+id/printnow"
+        android:layout_marginTop="40dp"
         android:onClick="openfolder"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:text="Open Folder"
+        android:text="Print All Now"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_below="@id/viewpagger_releative"
         android:background="@drawable/btn"
         android:layout_width="wrap_content"
         android:layout_height="60dp"></Button>
+    <Button
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:text="Share"
+        android:layout_below="@id/printnow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/btn"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:onClick="sharenow"></Button>
     </RelativeLayout>
 

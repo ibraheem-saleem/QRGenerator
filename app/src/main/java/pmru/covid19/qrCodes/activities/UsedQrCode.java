@@ -10,6 +10,10 @@ import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 
 import pmru.covid19.R;
@@ -54,4 +58,7 @@ public class UsedQrCode extends AppCompatActivity {
         Log.d("check list size",folderList.size()+" here");
         adapter = new CustomAdapter(this,folderList,1);
         recyclerView.setAdapter(adapter);
-    }}
+    }
+
+
+}
