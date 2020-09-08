@@ -35,12 +35,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLConnection;
+import java.nio.channels.FileChannel;
 import java.sql.Array;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -110,9 +112,15 @@ public class Show_Qr_Images extends AppCompatActivity {
 
         }
 
-        imagesPathArrayList.removeAll(Arrays.asList(null, ""));
+
         adapter = new SlidingImage_Adapter(this, imagesPathArrayList);
-            pager.setAdapter(adapter);
+     /*   imagesPathArrayList.removeAll(Arrays.asList(null, ""));
+        try {
+            MoveFile(imagesPathArrayList.get(0));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+        pager.setAdapter(adapter);
 
 
         Collections.sort(sortedArrayList);
@@ -308,5 +316,31 @@ public class Show_Qr_Images extends AppCompatActivity {
     public void sharenow(View view) {
         checkprint = false;
         createPDFWithMultipleImage();
+    }
+
+    public static void MoveFile(String path_source) throws IOException {
+        File file_Source = new File(path_source);
+        String des=Environment.getExternalStorageDirectory().getAbsolutePath() + "/QRCode/"+file_Source.getName();
+        File file_Destination = new File(des);
+
+        FileChannel source = null;
+        FileChannel destination = null;
+        try {
+            source = new FileInputStream(file_Source).getChannel();
+            destination = new FileOutputStream(file_Destination).getChannel();
+
+            long count = 0;
+            long size = source.size();
+            while((count += destination.transferFrom(source, count, size-count))<size);
+            file_Source.delete();
+        }
+        finally {
+            if(source != null) {
+                source.close();
+            }
+            if(destination != null) {
+                destination.close();
+            }
+        }
     }
 }
